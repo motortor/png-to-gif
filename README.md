@@ -36,3 +36,13 @@ duration = 40  # 0.04秒 = 40毫秒
 
 但是生成的GIF图案仍然存在出现黑边的问题。
 
+# 修改2（png_to_gif2.py）
+![image](https://github.com/motortor/png-to-gif/blob/main/output2.gif)
+
+生成的GIF图案出现黑边，可能是由于透明度处理不当。
+为了确保透明区域正确处理，可以确保使用 Image.alpha_composite 函数合并图片和透明背景。
+关键改动点：
+1. 使用 Image.alpha_composite 函数将图片和透明背景合成，确保透明区域处理正确。
+2. 在 save 方法中设置 transparency=0 参数，以明确指定透明色索引。
+
+
